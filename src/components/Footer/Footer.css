@@ -1,0 +1,57 @@
+/* stick footer-container to the bottom*/
+.footer-container {
+  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: rgba(37,67,119,255); 
+    padding-right: 90px; 
+  }
+
+.footer-content {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+.footer-contact {
+    font-size: 12px;
+    margin-top: 10px; 
+  }
+  
+.footer-socialMedia {
+    font-size: 14px;
+    margin-top: 10px;  
+  }
+  
+.footer-Price {
+    font-size: 14px;
+    margin-top: 10px;
+    color: white;
+  }
+  
+  /* Apply styles to each footer element within the container */
+  .footer-container .footer-title,
+  .footer-container .footer-content,
+  .footer-container .footer-contact,
+  .footer-container .footer-socialMedia,
+  .footer-container .footer-price {
+    flex-basis: 20%; 
+    text-align: center; 
+    color: white;
+    padding-bottom: 10px;
+  }
+  
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  text-decoration: underline;
+}
