@@ -103,7 +103,7 @@ export default function BasicTabs() {
             component="label"
             color="primary"
             size="large"
-            sx={{ width: "13%", mt: 1 }}
+            sx={{ width: "13%", mt: 1, backgroundColor: "#31448d" }}
             margin="normal"
           >
             Search

@@ -23,7 +23,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   padding: 0 2rem;
   background-color: var(--mainColor);
   color: var(--textColor);
@@ -142,4 +142,12 @@ nav {
   cursor: pointer;
   padding: 0 10px;
   border-radius: 0 15px 15px 0;
+}
+
+.logo {
+  font-family: Anton;
+}
+
+.search-mui {
+  height: 47px;
 }
