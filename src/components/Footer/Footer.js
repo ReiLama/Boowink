@@ -19,8 +19,8 @@ const Footer = () => {
                 </div>
                 <div class="footer-socialMedia">
                     <h5>Social Media</h5>
-                    <a href="https://google.com">
-                        <FaFacebookSquare />
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
+                        <FaFacebookSquare/>
                     </a>
                     <br></br>
                     <a href="https://google.com">

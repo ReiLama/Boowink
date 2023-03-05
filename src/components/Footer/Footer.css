@@ -1,6 +1,5 @@
 /* stick footer-container to the bottom*/
 .footer-container {
-  
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -11,7 +10,7 @@
     justify-content: space-between; 
     align-items: center; 
     background-color: rgba(37,67,119,255); 
-    padding-right: 90px; 
+    padding-right: 80px; 
   }
 
 .footer-content {
@@ -33,6 +32,7 @@
     font-size: 14px;
     margin-top: 10px;
     color: white;
+    padding-bottom: 10px;
   }
   
   /* Apply styles to each footer element within the container */
@@ -54,4 +54,8 @@ a{
 
 a:hover{
   text-decoration: underline;
+}
+
+a:hover{
+  color: rgb(147, 17, 17);
 }
