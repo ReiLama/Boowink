@@ -14,7 +14,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import HotelAtlantis from '../../Images/Hotel_Atlantis_Dubai.jpg';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-
+import Container from '@mui/material/Container';
+import lufthansa from '../../Images/lufthansa.jpg';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -35,7 +36,8 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
+  <Container maxWidth="sm" sx={{display: "flex"}}>
+    <Card sx={{boxShadow: 3, paddingRight: 2 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -74,7 +76,87 @@ export default function RecipeReviewCard() {
         </Button>
 
       </CardActions>
-    
     </Card>
+    <Card sx={{boxShadow: 3, paddingRight: 2  }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Tirana to Milan"
+        subheader="Direct Flight"
+      />
+      <CardMedia
+        component="img"
+        height="204"
+        width="144"
+        image={lufthansa}
+        
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Atlantis The Palm, Dubai is a luxury hotel resort located at the apex of the Palm Jumeirah in the United Arab Emirates. It was the first resort to be built on the island and is themed on the myth of Atlantis but includes distinct Arabian elements.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon
+            fontSize="large"
+            sx={{ color: red[500] }}
+          />
+        </IconButton>
+        <Button variant="contained" endIcon={<SendIcon />}>
+            Book Now
+        </Button>
+
+      </CardActions>
+    </Card>
+    <Card sx={{ boxShadow: 3 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Atlantis Hotel"
+        subheader="Dubai"
+      />
+      <CardMedia
+        component="img"
+        height="204"
+        width="144"
+        image={HotelAtlantis}
+        
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Atlantis The Palm, Dubai is a luxury hotel resort located at the apex of the Palm Jumeirah in the United Arab Emirates. It was the first resort to be built on the island and is themed on the myth of Atlantis but includes distinct Arabian elements.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon
+            fontSize="large"
+            sx={{ color: red[500] }}
+          />
+        </IconButton>
+        <Button variant="contained" endIcon={<SendIcon />}>
+            Book Now
+        </Button>
+
+      </CardActions>
+    </Card>
+  </Container>
   );
 }
