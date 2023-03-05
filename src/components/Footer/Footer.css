@@ -1,6 +1,5 @@
 /* stick footer-container to the bottom*/
 .footer-container {
-  position: fixed;
   bottom: 0;
   width: 100%;
 }
