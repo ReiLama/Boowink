@@ -7,6 +7,11 @@
   font-family: "Titillium Web", sans-serif;
 }
 
+body {
+  background-image: url("travel.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 :root {
   --mainColor: #31448d;
   --mainColorLight: #5767aa;
