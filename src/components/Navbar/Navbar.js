@@ -1,7 +1,7 @@
 import "../CSS/main.css";
 import BasicSelect from "./BasicSelect/BasicSelect";
 import SearchIcon from "@mui/icons-material/Search";
-
+import { Link } from "react-router-dom";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
@@ -90,7 +90,7 @@ const Navbar = () => {
         <a href="/#">HOME</a>
         <a href="/#">MY TRIPS</a>
         <a href="/#">SUPPORT</a>
-        <a href="/#">SIGN IN</a>
+        <a href="/login">SIGN IN</a>
         <button className="nav-btn nav-close-btn"></button>
       </nav>
       <button className="nav-btn"></button>

@@ -39,6 +39,7 @@ nav a {
 
 nav a:hover {
   color: var(--secondaryColor);
+  text-decoration: none;
 }
 
 header .nav-btn {

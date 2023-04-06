@@ -11,16 +11,14 @@ export default function BasicSelect() {
   return (
     <div>
       <a href="#" onClick={toggleMenu}>
-        Select an Option
+        MORE TRAVEL
       </a>
-      {menuVisible && (
+      {menuVisible ? (
         <div className="dropdown-menu">
-          <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-          </ul>
+          <h1>ASDFIOHSFUIOASJFOSIF</h1>
         </div>
+      ) : (
+        <></>
       )}
     </div>
   );
