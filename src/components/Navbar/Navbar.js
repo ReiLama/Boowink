@@ -88,7 +88,7 @@ const Navbar = () => {
 
       <nav>
         <a href="/#">HOME</a>
-        <a href="/#">TRIPS</a>
+        <a href="/#">MY TRIPS</a>
         <a href="/#">SUPPORT</a>
         <a href="/#">SIGN IN</a>
         <button className="nav-btn nav-close-btn"></button>
