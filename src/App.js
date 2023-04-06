@@ -1,19 +1,19 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import Card from "./components/Featured_content/Featured";
-import Tab from "./components/Tab/Tab";
 import Login from "./components/Login/Login";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import BodyContainer from "./components/BodyContainer/BodyContainer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Tab />
-      <Card />
-      <Login />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<BodyContainer />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
