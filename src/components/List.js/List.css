@@ -1,0 +1,12 @@
+
+
+
+.container-1{
+    margin: 10%;
+    border-radius: 3%;
+    padding-top: 5%;
+}
+
+.container-1:hover {
+    box-shadow: 10px 10px 20px #ccc;
+}
