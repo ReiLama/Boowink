@@ -1,0 +1,84 @@
+{
+  "hotels": [
+    {
+      "hotel_id": 1,
+      "hotel_name": "Luxury Resort & Spa",
+      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/db/c3/b5/hotel-exterior.jpg?w=900&h=-1&s=1",
+      "hotel_review": 4.1,
+      "price_per_night": "$200",
+      "city": "Tirana",
+      "location": "1234 Beach Blvd, Miami, FL",
+      "amenities": [
+        "Free Wi-Fi",
+        "Private Beach Access",
+        "Swimming Pool",
+        "Spa & Wellness Center",
+        "Fitness Center"
+      ]
+    },
+    {
+      "hotel_id": 2,
+      "hotel_name": "Another Test Hotel",
+      "hotel_photo": "https://files.sitebuilder.name.tools/0b/bc/0bbc24d4-2b11-493c-b338-17d4b5dba385.jpg",
+      "hotel_review": 4.9,
+      "price_per_night": "$680",
+      "city": "Tirana",
+      "location": "321 Adventure St, 20934",
+      "amenities": [
+        "Free Wi-Fi",
+        "Private Beach Access",
+        "Swimming Pool",
+        "Spa & Wellness Center",
+        "Fitness Center"
+      ]
+    },
+    {
+      "hotel_id": 3,
+      "hotel_name": "Urban Chic Boutique Hotel",
+      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/8f/6c/aa/hotel-adeline.jpg?w=1200&h=-1&s=1",
+      "hotel_review": 5,
+      "price_per_night": "$150",
+      "city": "Tirana",
+      "location": "5678 Downtown St, New York, NY",
+      "amenities": [
+        "Free Wi-Fi",
+        "Rooftop Bar",
+        "Gym",
+        "Restaurant",
+        "Business Center"
+      ]
+    },
+    {
+      "hotel_id": 4,
+      "hotel_name": "Hotel Edison",
+      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/93/ac/12/hotel-edison.jpg?w=1100&h=-1&s=1",
+      "hotel_review": 4.9,
+      "price_per_night": "$100",
+      "city": "Tirana",
+      "location": "9876 Mountain Rd, Aspen, CO",
+      "amenities": [
+        "Fireplace",
+        "Scenic Views",
+        "Hiking Trails",
+        "Kitchenette",
+        "Outdoor BBQ Area"
+      ]
+    },
+    {
+      "hotel_id": 5,
+      "hotel_name": "Trump Soho Hotel",
+      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9d/a8/28/trump-soho-new-york.jpg?w=1200&h=-1&s=1",
+      "hotel_review": 3,
+      "price_per_night": "$120",
+      "city": "Tirana",
+      "location": "4567 Main St, Orlando, FL",
+      "amenities": [
+        "Swimming Pool",
+        "Kids Club",
+        "Playground",
+        "Free Breakfast",
+        "Game Room"
+      ]
+    }
+  ]
+}
