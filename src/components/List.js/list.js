@@ -151,7 +151,7 @@ function List() {
                         <FormControl sx={{
                            display: 'flex',
                            bgcolor: 'warning.main',
-                           maxWidth: "90%",
+                           maxWidth: "80%",
                            flexDirection: 'row',
                            justifyContent: 'space-evenly',
                            p: 5,

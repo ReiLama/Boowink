@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import BodyContainer from "./components/BodyContainer/BodyContainer";
 import List from "./components/List.js/list";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/list" element={<List />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
