@@ -7,7 +7,6 @@ const BodyContainer = () => {
     <>
       <Tab />
       <Card />
-      <Footer />
     </>
   );
 };
