@@ -3,8 +3,14 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState } from "react";
 // import Grid from '@mui/material/Grid';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography, FormControl, FormLabel, Button } from '@mui/material';
 import "./List.css";
+import TableList from "./TableList";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import TextField from '@mui/material/TextField';
+import FormControll from "./FormControll";
+import FormControll1 from "./FormControll1";
 
 
 function List() {
@@ -64,31 +70,100 @@ function List() {
                             mt:4,
                             width: '90%',
                         }}>
+                          <div sx={{
+                            textAlign: 'center',
+                            margin:2,
+                                  }}>
+                                    <Box sx={{fontWeight: 'bold', fontSize: 50}}>Hotel Rogner Europa Park</Box>
+                                <h6> 
+                                  <LocationOnIcon sx={{ fontSize: 50 }}/>
+                                  Bulevardi Deshmoret e Kombit, 1000 Tirana, Albania
+                                </h6>
+                                <StarOutlineIcon sx={{ color: "pink", fontSize: 50 }}/>
+                                <StarOutlineIcon sx={{ color: "pink", fontSize: 50 }}/>
+                                <StarOutlineIcon sx={{ color: "pink", fontSize: 50 }}/>
+                                <StarOutlineIcon sx={{ color: "pink", fontSize: 50 }}/>
+                                <StarOutlineIcon sx={{ color: "pink", fontSize: 50 }}/> 
+                          </div>
+                          
+                          {/* <p sx={{fontWeight: bold,}}>prove per text</p> */}
                            <Grid container spacing={3}>
 
-                            <Grid item xs={6}> 
-                                <div className="container-1">
-                                    <Carousel showArrows={true}
-                                        autoPlay={true}
-                                        infiniteLoop={true}
-                                        selectedItem={imageData[currentIndex]}
-                                        onChange={handleChange}
-                                        stopOnHover={true}
-                                    className="carousel-container"
-                                    
-                                    >
-                                    {renderSlides}
+                                <Grid item xs={6}> 
+                                    <div className="container-1">
+                                        <Carousel showArrows={true}
+                                            autoPlay={true}
+                                            infiniteLoop={true}
+                                            selectedItem={imageData[currentIndex]}
+                                            onChange={handleChange}
+                                            stopOnHover={true}
+                                        className="carousel-container"
+                                        
+                                        >
+                                        {renderSlides}
 
-                                    </Carousel>
-                                </div>
-                             </Grid>
+                                        </Carousel>
+                                    </div>
+                                </Grid>
 
-                            <Grid item xs={6}> 
-                                <p>provaaaaa</p></Grid>
+                                <Grid item xs={6} sx={{
+                                        mx:'auto',
+                                        mt:10,
+                                        maxWidth: "90%",
+                                    }}> 
+                                    <Box 
+                                      className="container-2"
+                                      sx={{
+                                        bgcolor: 'warning.main',
+                                        textAlign: 'start',
+                                        p: 3,
+                                      }}>
+
+                                        <h2>An oasis in the city center of Tirana.</h2>
+                                        <br/>
+                                        <Typography  sx={{
+                                        fontFamily: 'Cursive'
+                                      }}>
+                                           In the midst of greenery </Typography>
+                                           <br />
+                                           <Typography  sx={{
+                                        fontFamily: 'Cursive'
+                                      }}>
+                                          Our unique Mediterranean garden is simply beautiful and invites you to relax and rejuvenate during your stay at the Rogner Hotel. Located at the Tirana’s best and most beautiful boulevard in the very centre of the town, our hotel is yet surrounded by marvellous nature. </Typography>
+                                          <br />
+                                          <br />
+                                          <Typography  sx={{
+                                        fontFamily: 'Cursive'
+                                      }}> For all sports enthusiasts there is a tennis court that may be used throughout the year and a putting green. The swimming pool tempts you to a refreshing splash and perhaps a visit to the Bubbles Pool Bar for a drink or a cocktail during your stay in Tirana.</Typography>
+
+
+                                     {/* <TableList /> */}
+
+                                    </Box>
+                                  
+                                </Grid>
+                                
 
                             </Grid>
                             
                         </Box>
+
+                        <FormControl sx={{
+                           display: 'flex',
+                           bgcolor: 'warning.main',
+                           maxWidth: "90%",
+                           flexDirection: 'row',
+                           justifyContent: 'space-evenly',
+                           p: 5,
+                           mx:'auto',
+                           borderRadius: 2,
+
+                          }}>
+                          <TextField type="text" color='primary' defaultValue="From" />
+                          <TextField type="text" color='secondary' defaultValue="Until" />
+                          <FormControll />
+                          <FormControll1 />
+                        </FormControl>
 
 
                   </div>
