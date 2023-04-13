@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "./components/Login/Signup";
 import Footer from "./components/Footer/Footer";
 
-import Footer from "./components/Footer/Footer";
 
 function App() {
   return (

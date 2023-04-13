@@ -87,17 +87,10 @@ const Navbar = () => {
       {/* </div> */}
 
       <nav>
-<<<<<<< HEAD
-        <a href="/#">HOME</a>
-        <a href="/#">MY TRIPS</a>
-        <a href="/#">SUPPORT</a>
-        <a href="/login">SIGN IN</a>
-=======
         <Link to="/">HOME</Link>
         <Link to="/trips">TRIPS</Link>
         <Link to="/support">SUPPORT</Link>
         <Link to="/login">LOGIN</Link>
->>>>>>> 8333c5392a6e0a4174aa42521b10838179ddbb9f
         <button className="nav-btn nav-close-btn"></button>
       </nav>
       <button className="nav-btn"></button>
