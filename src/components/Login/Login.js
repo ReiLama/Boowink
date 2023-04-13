@@ -1,20 +1,9 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
-import { Box, TextField, Typography, Button  } from "@mui/material";
+import { Box, TextField, Typography, Button } from "@mui/material";
 
 
 const Login = () => {
-//     let navigate = useNavigate(); 
-//   const routeSignup = () =>{ 
-//     let path = `/Signup`; 
-//     navigate(path);
-//   }
-//   const routeForget = () =>{ 
-//     let path = `/Forgot`; 
-//     navigate(path);
-//   }
 
-   
     return (
         <div>
             <form>

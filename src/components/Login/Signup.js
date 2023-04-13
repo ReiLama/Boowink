@@ -1,5 +1,4 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Box, TextField, Typography, Button } from "@mui/material";
 
@@ -19,11 +18,7 @@ const Signup = () => {
             setPasswordMatch(false);
         }
     };
-    // let navigate = useNavigate();
-    // const routeLogin = () => {
-    //     let path = `/Login`;
-    //     navigate(path);
-    // }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
