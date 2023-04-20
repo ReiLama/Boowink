@@ -1,19 +1,23 @@
 import React from "react";
+import {  useNavigate } from "react-router-dom"
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState } from "react";
 // import Grid from '@mui/material/Grid';
 import { Box, Grid, Typography, FormControl, FormLabel, Button } from '@mui/material';
 import "./List.css";
-import TableList from "./TableList";
+// import TableList from "./TableList";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import TextField from '@mui/material/TextField';
 import FormControll from "./FormControll";
 import FormControll1 from "./FormControll1";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 function List() {
+  const navigate = useNavigate()
         const imageData = [
             { 
               label: "Image 1",
@@ -117,6 +121,7 @@ function List() {
                                         bgcolor: 'warning.main',
                                         textAlign: 'start',
                                         p: 3,
+                                        borderRadius: 2,
                                       }}>
 
                                         <h2>An oasis in the city center of Tirana.</h2>
@@ -148,21 +153,29 @@ function List() {
                             
                         </Box>
 
-                        <FormControl sx={{
+                        <FormControl className="container-3" sx={{
                            display: 'flex',
                            bgcolor: 'warning.main',
-                           maxWidth: "80%",
+                           maxWidth: "90%",
                            flexDirection: 'row',
                            justifyContent: 'space-evenly',
                            p: 5,
                            mx:'auto',
+                           mb: 2,
                            borderRadius: 2,
 
                           }}>
-                          <TextField type="text" color='primary' defaultValue="From" />
-                          <TextField type="text" color='secondary' defaultValue="Until" />
+                          <LocalizationProvider  dateAdapter={AdapterDayjs} >
+                              <DatePicker />
+                          </LocalizationProvider>
+                          <LocalizationProvider  dateAdapter={AdapterDayjs} >
+                              <DatePicker />
+                          </LocalizationProvider>
+                          {/* <TextField type="text" color='secondary' defaultValue="Until" /> */}
                           <FormControll />
                           <FormControll1 />
+                          <Button variant="contained" color="success" onClick={() => navigate("/InsideRoom/")}>BOOK NOW</Button>
+                          
                         </FormControl>
 
 

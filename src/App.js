@@ -7,6 +7,7 @@ import List from "./components/List.js/list";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "./components/Login/Signup";
 import Footer from "./components/Footer/Footer";
+import InsideRoom from "./components/InsideRoom/InsideRoom";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Signup" element={<Signup/>}></Route>
           <Route path="/Support" element={<Support/>}></Route>
           <Route path="/list" element={<List />}></Route>
+          <Route path="/InsideRoom" element={<InsideRoom />}></Route>
         </Routes>
         <Footer />
       </Router>
