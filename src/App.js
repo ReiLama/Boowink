@@ -22,7 +22,6 @@ function App() {
           <Route path="/Forgot" element={<Forgot/>}></Route>
           <Route path="/ResPass" element={<ResPass/>}></Route>
           <Route path="/Support" element={<Support/>}></Route>
-          <Route path="/list" element={<List />}></Route>
           <Route path="/hotel-details" element={<HotelDetails />}>
             <Route path="/hotel-details/:id" element={<HotelDetails />}></Route>
           </Route>
