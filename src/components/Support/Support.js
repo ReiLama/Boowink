@@ -5,7 +5,7 @@ function Support() {
   return (
     <div>
       <Box p={2}>
-        <Typography variant="h4" color="secondary">Support Zone</Typography>
+        <Typography variant="h4" color="darkblue">Support Zone</Typography>
         <Box mt={2}>
           <Accordion>
             <AccordionSummary >
