@@ -6,9 +6,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Route, useNavigate } from "react-router-dom";
 
 const ShowHotelData = () => {
   const [hotels, setHotels] = useState([]);
+  const navigate = useNavigate();
 
   Axios.get("./hotels.json")
     .then((res) => {
@@ -20,7 +22,7 @@ const ShowHotelData = () => {
     <div className="hotel-results">
       {hotels.map((hotel) => {
         return (
-          <div className="data-hotel-result">
+          <div className="data-hotel-result" key={hotel.hotel_id}>
             <Card
               sx={{
                 maxWidth: 345,
@@ -31,11 +33,13 @@ const ShowHotelData = () => {
                 alignItems: "center",
               }}
             >
-              <CardActionArea>
+              <CardActionArea
+                onClick={() => navigate(`/hotel-details/${hotel.hotel_id}`)}
+              >
                 <CardMedia
                   component="img"
                   height="140"
-                  image={hotel.hotel_photo}
+                  image={hotel.hotel_photos[0].url}
                   alt="green iguana"
                 />
                 <CardContent>
