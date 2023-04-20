@@ -1,17 +1,14 @@
 import React from "react";
 import BedroomParentIcon from '@mui/icons-material/BedroomParent';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import WifiIcon from '@mui/icons-material/Wifi';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import BathroomIcon from '@mui/icons-material/Bathroom';
-
+import { Box, Grid, FormControl, Typography, Button } from "@mui/material";
 
 function InsideRoom() {
-
     const imageData = [
         { label: "Image 1",
           alt: "image1",
@@ -70,10 +67,10 @@ function InsideRoom() {
                                         <BathroomIcon sx={{ fontSize: 50 }}/>   
                                     </p>
                                 </Grid>
-                                <Grid item xs={12} md={4}>
-                                     <p>ben kjo ?</p>
-                                     <p>ben kjo ?</p>
-                                     <p>ben kjo ?</p>
+                                <Grid item xs={12} md={4} sx={{textAlign: 'start'}}>
+                                     <Typography sx={{textDecoration: 'underline', color: 'red', m:2,}}>Price : 386 Euro</Typography>
+                                    <Typography sx={{textDecoration: 'underline',  m:2}}>Free WIFI & breakfast include</Typography>
+                                    <FormControl sx={{mx: "auto", borderRadius: 2, m:5, }}><Button variant="contained" color="success" >Pay now</Button></FormControl>
                                 </Grid>
                                 
 

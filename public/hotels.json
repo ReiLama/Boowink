@@ -3,7 +3,16 @@
     {
       "hotel_id": 1,
       "hotel_name": "Luxury Resort & Spa",
-      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/db/c3/b5/hotel-exterior.jpg?w=900&h=-1&s=1",
+      "hotel_photos": [
+        {
+          "label": "Image 1",
+          "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/db/c3/b5/hotel-exterior.jpg?w=900&h=-1&s=1"
+        },
+        {
+          "label": "Image 2",
+          "url": "https://internationaltravelandtours.com/wp-content/uploads/2018/11/rogner-hotel-tirana-14.jpg"
+        }
+      ],
       "hotel_review": 4.1,
       "price_per_night": "$200",
       "city": "Tirana",
@@ -19,7 +28,16 @@
     {
       "hotel_id": 2,
       "hotel_name": "Another Test Hotel",
-      "hotel_photo": "https://files.sitebuilder.name.tools/0b/bc/0bbc24d4-2b11-493c-b338-17d4b5dba385.jpg",
+      "hotel_photos": [
+        {
+          "label": "Image 1",
+          "url": "https://files.sitebuilder.name.tools/0b/bc/0bbc24d4-2b11-493c-b338-17d4b5dba385.jpg"
+        },
+        {
+          "label": "Image 2",
+          "url": "https://www.hotel-europapark.com/uploads/tx_tiranacontent/Location_thumbnail.jpg"
+        }
+      ],
       "hotel_review": 4.9,
       "price_per_night": "$680",
       "city": "Tirana",
@@ -35,7 +53,16 @@
     {
       "hotel_id": 3,
       "hotel_name": "Urban Chic Boutique Hotel",
-      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/8f/6c/aa/hotel-adeline.jpg?w=1200&h=-1&s=1",
+      "hotel_photos": [
+        {
+          "label": "Image 1",
+          "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/8f/6c/aa/hotel-adeline.jpg?w=1200&h=-1&s=1"
+        },
+        {
+          "label": "Image 2",
+          "url": "https://www.il.kayak.com/rimg/himg/2e/98/ea/ice-53448-79534344_3XL-431847.jpg?width=720&height=576&crop=true"
+        }
+      ],
       "hotel_review": 5,
       "price_per_night": "$150",
       "city": "Tirana",
@@ -51,7 +78,16 @@
     {
       "hotel_id": 4,
       "hotel_name": "Hotel Edison",
-      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/93/ac/12/hotel-edison.jpg?w=1100&h=-1&s=1",
+      "hotel_photos": [
+        {
+          "label": "Image 1",
+          "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/93/ac/12/hotel-edison.jpg?w=1100&h=-1&s=1"
+        },
+        {
+          "label": "Image 2",
+          "url": "https://www.il.kayak.com/rimg/himg/2e/98/ea/ice-53448-79534344_3XL-431847.jpg?width=720&height=576&crop=true"
+        }
+      ],
       "hotel_review": 4.9,
       "price_per_night": "$100",
       "city": "Tirana",
@@ -67,7 +103,16 @@
     {
       "hotel_id": 5,
       "hotel_name": "Trump Soho Hotel",
-      "hotel_photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9d/a8/28/trump-soho-new-york.jpg?w=1200&h=-1&s=1",
+      "hotel_photos": [
+        {
+          "label": "Image 1",
+          "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9d/a8/28/trump-soho-new-york.jpg?w=1200&h=-1&s=1"
+        },
+        {
+          "label": "Image 2",
+          "url": "https://www.hotel-europapark.com/uploads/tx_tiranacontent/Restaurant_apollonia_thumbnail.jpg"
+        }
+      ],
       "hotel_review": 3,
       "price_per_night": "$120",
       "city": "Tirana",
