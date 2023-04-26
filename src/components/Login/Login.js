@@ -1,8 +1,18 @@
 import React from "react";
 import { Box, TextField, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
+    let navigate = useNavigate(); 
+    const routeSignup = () =>{ 
+      let path = `/Signup`; 
+      navigate(path);
+    }
+    const routeForget = () =>{ 
+      let path = `/Forgot`; 
+      navigate(path);
+    }
 
     return (
         <div>
@@ -31,8 +41,8 @@ const Login = () => {
                     <TextField margin="normal" type={'password'} variant="outlined" placeholder="Password" />
 
                     <Button sx={{ marginTop: 2 }} type="submit" variant="contained"> Log In </Button>
-                    <Button sx={{ marginTop: 2 }} type="submit" > Forgot Password </Button>
-                    <Button sx={{ marginTop: 2 }} type="submit" > Sign Up </Button>
+                    <Button sx={{ marginTop: 2 }} type="submit" onClick={routeForget}> Forgot Password </Button>
+                    <Button sx={{ marginTop: 2 }} type="submit" onClick={routeSignup}> Sign Up </Button>
 
                 </Box>
             </form>
