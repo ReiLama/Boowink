@@ -31,6 +31,7 @@ const ShowHotelData = () => {
                 boxshadow: 1,
                 justifyContent: "center",
                 alignItems: "center",
+                marginLeft: "36%",
               }}
             >
               <CardActionArea
@@ -49,15 +50,12 @@ const ShowHotelData = () => {
                   <Typography variant="body2" color="text.secondary">
                     {hotel.location}, {hotel.city}
                   </Typography>
-                  <Typography
-                    variant="h6"
-                    color="black"
-                    sx={{
-                      mt: 2,
-                    }}
-                  >
-                    {hotel.price_per_night}
-                  </Typography>
+                  <p>
+                    Total price:
+                    <Typography variant="h6" color="black">
+                      {hotel.price_per_night}
+                    </Typography>
+                  </p>
                 </CardContent>
               </CardActionArea>
               <CardActions>
