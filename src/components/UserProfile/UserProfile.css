@@ -1,0 +1,86 @@
+.user-profile {
+  display: flex;
+  margin: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin-right: 2rem;
+}
+
+.sidebar-link {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 12rem);
+}
+
+.username {
+  margin-bottom: 2rem;
+  color: blue;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.label-name,
+.label-lname,
+.label-email,
+.label-phone {
+  display: inline-block;
+  width: 8rem;
+  margin-right: 1rem;
+  color: blue;
+}
+
+.input-name,
+.input-lname,
+.input-email,
+.input-phone {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 2px solid blue;
+  color: blue;
+}
+
+.span-name,
+.span-lname,
+.span-email,
+.span-phone {
+  flex: 1;
+  color: blue;
+}
+
+.edit-button,
+.save-button {
+  padding: 0.5rem;
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-button:hover,
+.save-button:hover {
+  background-color: blue;
+  color: white;
+}
