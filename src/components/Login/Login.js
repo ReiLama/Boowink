@@ -14,9 +14,27 @@ const Login = () => {
       navigate(path);
     }
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        
+        const response = await fetch('http://localhost:3306/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: usernameInputValue,
+            password: passwordInputValue
+          })
+        });
+      
+        // const data = await response.json();
+      };
+      
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Box
                     display="flex"
                     flexDirection={"column"}
@@ -37,8 +55,8 @@ const Login = () => {
                     }}
                 >
                     <Typography variant="h3" padding={3} textAlign="center">Log In</Typography>
-                    <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
-                    <TextField margin="normal" type={'password'} variant="outlined" placeholder="Password" />
+                    <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" name="email"/>
+                    <TextField margin="normal" type={'password'} variant="outlined" placeholder="Password" name="password" />
 
                     <Button sx={{ marginTop: 2 }} type="submit" variant="contained"> Log In </Button>
                     <Button sx={{ marginTop: 2 }} type="submit" onClick={routeForget}> Forgot Password </Button>

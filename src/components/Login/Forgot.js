@@ -32,7 +32,7 @@ const Forgot = () => {
                 }}
             >
                 <Typography variant="h4" padding={2} textAlign="center">Forgot your password?</Typography>
-                <Typography variant="h9" padding={1} textAlign="center">Please eneter your email</Typography>
+                <Typography variant="h9" padding={1} textAlign="center">Please enter your email</Typography>
                 <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
 
                 <Button sx={{marginTop:2}} type="submit" variant="contained" onClick={routeResPass}> Request password reset </Button>
