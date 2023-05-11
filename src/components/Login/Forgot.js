@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, TextField, Typography, Button} from "@mui/material";
 
 
 const Forgot = () => {
+    let navigate = useNavigate(); 
+    const routeResPass = () =>{ 
+      let path = `/ResPass`; 
+      navigate(path);
+    }
     return (
     <div>
         <form>
@@ -29,7 +35,7 @@ const Forgot = () => {
                 <Typography variant="h9" padding={1} textAlign="center">Please eneter your email</Typography>
                 <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
 
-                <Button sx={{marginTop:2}} type="submit" variant="contained"> Request password reset </Button>
+                <Button sx={{marginTop:2}} type="submit" variant="contained" onClick={routeResPass}> Request password reset </Button>
             
             </Box>
         </form>
