@@ -1,0 +1,4 @@
+node_modules/
+nodeServer/.env
+nodeServer/views
+src/
