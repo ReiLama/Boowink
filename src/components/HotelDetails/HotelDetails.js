@@ -1,24 +1,22 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // import Grid from '@mui/material/Grid';
 import {
   Box,
   Grid,
   Typography,
-  FormControl,
-  FormLabel,
-  Button,
+  FormControl
 } from "@mui/material";
 import "./List.css";
-import TableList from "./TableList";
+// import TableList from "./TableList";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import TextField from "@mui/material/TextField";
 import FormControll from "./FormControll";
 import FormControll1 from "./FormControll1";
-import Axios from "axios";
+// import Axios from "axios";
 
 function HotelDetails() {
   const imageData = [

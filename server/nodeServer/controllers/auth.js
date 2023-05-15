@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const cookieParser = require('cookie');
 const smtpTransport = require('nodemailer-smtp-transport');
+const { response } = require('express');
 
 
 const pool = mysql.createPool({
@@ -30,29 +31,24 @@ const transporter = nodemailer.createTransport(
     })
 );
 
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+
 exports.authenticateToken = (req, res, next) => {
-
-    const user = req.user;
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-    res.json({ accessToken: accessToken })
-    console.log(`THIS IS ACCESS TOKEN ${accessToken}`);
-
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) {
-        return res.status(401).send('Missing token');
+        return res.status(401).send({ error: 'Unauthorized' });
     }
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
-            return res.status(403).send('Invalid token');
+            return res.status(403).send({ error: 'Forbidden' });
         }
         req.user = user;
-        res.json("I AM WORKING");
         next();
     });
-}
+};
 
 exports.register = (req, res) => {
     try {
@@ -144,7 +140,8 @@ exports.login = (req, res) => {
                 // res.status(200).redirect("/");
                 return res.json({
                     message: 'User logged in',
-                    user: results
+                    user: results,
+                    token: token
                 });
             }
 
@@ -321,57 +318,52 @@ exports.logout = (req, res) => {
 };
 
 
-exports.booking = async (req, res) => {
+exports.booking = (req, res) => {
 
-    // separate hootel book restaurant booking (each booking)
-    const { Hotel_ID, checkInDate, checkOutDate, Board, Room_ID, numGuests, Res_Name, Res_details, Res_status } = req.body;
-    const userId = req.user.id;
-    const reservationSql = 'INSERT INTO reservations (User_ID,Res_Name,Res_details,Res_status) VALUES (?, ?, ?, ?)';
-    const reservationValues = [userId, Res_Name, Res_details, Res_status];
-    const sql = 'INSERT INTO hotel (user_id, Hotel_ID, check_in_date, check_out_date, room_type, num_guests) VALUES (?, ?, ?, ?, ?, ?)';
-    const values = [userId, Hotel_ID, checkInDate, checkOutDate, Board, numGuests];
-
+    // const userId = req.user.id;
+    // console.log(userId);    
     try {
-        const reservationResult = ((req, res) => {
-            pool.query(reservationSql, reservationValues, (error, results) => {
-                if (error) {
-                    res.status(404).json({message:"first promise"});
-                    console.log(error);
-                }
-                res.json(results);
-                console.log(results);
-            });
+        const { user_id, res_status, payment_id, check_in, check_out, board, num_guest } = req.body;
+        pool.query('INSERT INTO reservations SET ?', { user_id: user_id, res_status: res_status, payment_id: payment_id, check_in: check_in, check_out: check_out, board: board, num_guest: num_guest }, (error, results) => {
+            if (error) {
+                console.log(error);
+                return res.status(404).json({ message: "first promise" });
+            } else {
+
+                // console.log(res);
+                return res.json(results);
+            }
         });
 
-        const reservationId = reservationResult.insertId;
-        console.log(reservationId);
+        // const reservationId = reservationResult.insertId;
+        // console.log(reservationId);
 
-        const hotelResult = await new Promise((resolve, reject) => {
-            pool.query(sql, values, (error, results) => {
-                if (error) {
-                    reject(error);
-                }
-                resolve(results);
-            });
-        });
+        // const hotelResult = await new Promise((resolve, reject) => {
+        //     pool.query(sql, values, (error, results) => {
+        //         if (error) {
+        //             reject(error);
+        //         }
+        //         resolve(results);
+        //     });
+        // });
 
-        const hotelId = hotelResult.insertId;
+        // const hotelId = hotelResult.insertId;
 
-        const serviceSql = 'INSERT INTO Service (reservation_id, Hotel_ID) VALUES (?, ?)';
-        const serviceValues = [reservationId, hotelId];
-        const serviceResult = await new Promise((resolve, reject) => {
-            pool.query(serviceSql, serviceValues, (error, results) => {
-                if (error) {
-                    reject(error);
-                }
-                resolve(results);
-            });
-        });
+        // const serviceSql = 'INSERT INTO Service (reservation_id, Hotel_ID) VALUES (?, ?)';
+        // const serviceValues = [reservationId, hotelId];
+        // const serviceResult = await new Promise((resolve, reject) => {
+        //     pool.query(serviceSql, serviceValues, (error, results) => {
+        //         if (error) {
+        //             reject(error);
+        //         }
+        //         resolve(results);
+        //     });
+        // });
 
-        return res.json({
-            message: "Booking completed successfully",
-            results: [reservationResult, hotelResult, serviceResult]
-        });
+        // return res.json({
+        //     message: "Booking completed successfully",
+        //     results: [reservationResult, hotelResult, serviceResult]
+        // });
     } catch (error) {
         console.error(error);
         return res.status(500).json({

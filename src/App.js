@@ -12,6 +12,7 @@ import Forgot from "./components/Login/Forgot";
 import ResPass from "./components/Login/ResPass";
 import UserProfile from "./components/UserProfile/UserProfile";
 
+
 function App() {
   return (
     <div className="App">
@@ -25,7 +26,7 @@ function App() {
           <Route path="/ResPass" element={<ResPass />}></Route>
           <Route path="/Support" element={<Support />}></Route>
           <Route path="/hotel-details" element={<HotelDetails />}>
-            <Route path="/hotel-details/:id" element={<HotelDetails />}></Route>
+          <Route path="/hotel-details/:id" element={<HotelDetails />}></Route>
           </Route>
           <Route path="/user-profile" element={<UserProfile />}></Route>
         </Routes>
