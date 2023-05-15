@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 const Login = () => {
@@ -14,6 +15,18 @@ const Login = () => {
       navigate(path);
     }
 
+    const[emailValue,setEmailValue] = useState("");
+    const[password,setPassword]= useState("");
+    
+    const handleEmailInput = (event) => {
+        setEmailValue(event.target.value);
+        console.log(emailValue);
+    };
+
+    const handlePasswordInput = (event) => {
+      setPassword(event.target.value);
+      console.log(password);
+    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         
@@ -23,12 +36,13 @@ const Login = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            name: usernameInputValue,
-            password: passwordInputValue
+            email: emailValue,
+            password: password
           })
         });
       
-        // const data = await response.json();
+         const data = await response.json();
+         console.log(data);
       };
       
 
@@ -55,8 +69,8 @@ const Login = () => {
                     }}
                 >
                     <Typography variant="h3" padding={3} textAlign="center">Log In</Typography>
-                    <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" name="email"/>
-                    <TextField margin="normal" type={'password'} variant="outlined" placeholder="Password" name="password" />
+                    <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" name="email" onInput={handleEmailInput}/>
+                    <TextField margin="normal" type={'password'} variant="outlined" placeholder="Password" name="password" onInput={handlePasswordInput} />
 
                     <Button sx={{ marginTop: 2 }} type="submit" variant="contained"> Log In </Button>
                     <Button sx={{ marginTop: 2 }} type="submit" onClick={routeForget}> Forgot Password </Button>
