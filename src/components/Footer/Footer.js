@@ -9,8 +9,8 @@ const Footer = () => {
         <div class="footer-container">
             
                 <div className="footer-content">
-                    <h5>Content</h5>
-                    <p>ca llafe sfnjdfdhf djfhdfjhfhjfhjd fhjdhjdjhdfjhdfhjdfh</p>
+                    <h5>#Boowink</h5>
+                    <p>Your go to place to book anything you desire.</p>
                 </div>
                 <div class="footer-contact">
                     <h5>Contacts</h5>

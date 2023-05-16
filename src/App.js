@@ -24,7 +24,7 @@ function App() {
           <Route path="/ResPass" element={<ResPass />}></Route>
           <Route path="/Support" element={<Support />}></Route>
           <Route path="/hotel-details" element={<HotelDetails />}>
-            <Route path="/hotel-details/:id" element={<HotelDetails />}></Route>
+          <Route path="/hotel-details/:id" element={<HotelDetails />}></Route>
           </Route>
           <Route path="/user-profile" element={<UserProfile />}></Route>
         </Routes>
