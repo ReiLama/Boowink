@@ -1,6 +1,3 @@
 /.env
 /views
 /node_modules
-/images
-/controllers/imageController.js
-/routes/imageControllers.js
