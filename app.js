@@ -60,7 +60,7 @@ app.use('/api/services', require('./routes/services'));
 
 
 
-// app.use('/api/upload', require('./routes/imageControllers'));
+app.use('/api/uploads', require('./routes/imageControllers'));
 
 
 const port = process.env.PORT || 3000;
