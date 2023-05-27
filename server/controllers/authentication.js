@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const cookieParser = require('cookie');
 const smtpTransport = require('nodemailer-smtp-transport');
-const { response } = require('express');
+
 
 
 const pool = mysql.createPool({
@@ -31,11 +31,13 @@ const transporter = nodemailer.createTransport(
     })
 );
 
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const ACCESS_TOKEN_SECRET = process.env.JWT_SECRET;
 
-exports.authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+exports.authenticateUser = (req, res, next) => {
+    const token = req.headers.authorization;
+    // const token = authHeader && authHeader.split(' ')[1].replaceAll('\"', "");
+    // console.log("TOKEN:");
+    console.log(token);
 
     if (!token) {
         return res.status(401).send({ error: 'Unauthorized' });
@@ -43,8 +45,10 @@ exports.authenticateToken = (req, res, next) => {
 
     jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
+            console.log(err);
             return res.status(403).send({ error: 'Forbidden' });
         }
+        res.send({ user });
         req.user = user;
         next();
     });
@@ -53,7 +57,7 @@ exports.authenticateToken = (req, res, next) => {
 exports.register = (req, res) => {
     try {
 
-        const { firstname, lastname, username, email, password, passwordConfirm } = req.body;
+        const { firstname, email, password, passwordConfirm,  userType } = req.body;
 
         pool.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
             if (error) {
@@ -73,7 +77,7 @@ exports.register = (req, res) => {
             let hashedPassword = await bcrypt.hash(password, 8);
             console.log(hashedPassword);
 
-            pool.query('INSERT INTO users SET ?', { username: username, email: email, password: hashedPassword, first_name: firstname, last_name: lastname }, (error, results) => {
+            pool.query('INSERT INTO users SET ?', {  email: email, password: hashedPassword, name: firstname,type: userType}, (error, results) => {
                 if (error) {
                     console.log(error);
                     return res.json({
@@ -281,23 +285,6 @@ exports.resetpassword = async (req, res) => {
     }
 }
 
-exports.hotelBook = async (req, res) => {
-
-    const { mybookings } = req.body;
-    const userId = req.params.id;
-
-    pool.query(' SELECT * FROM bookings LEFT JOIN hotels ON bookings.hotel_id = hotels.id WHERE bookings.user_id = ? ', [userId], (error, results) => {
-
-        if (error) {
-            console.error('Something went wrong please try again later', error);
-            res.status(500).json({ message: 'error getting bookings' });
-        } else if (results.length === 0) {
-            res.status(404).json({ message: 'you have no bookings yet' })
-        } else {
-            res.json(results);
-        }
-    });
-}
 
 exports.logout = (req, res) => {
 
@@ -319,12 +306,9 @@ exports.logout = (req, res) => {
 
 
 exports.booking = (req, res) => {
-
-    // const userId = req.user.id;
-    // console.log(userId);    
     try {
-        const { user_id, res_status, payment_id, check_in, check_out, board, num_guest } = req.body;
-        pool.query('INSERT INTO reservations SET ?', { user_id: user_id, res_status: res_status, payment_id: payment_id, check_in: check_in, check_out: check_out, board: board, num_guest: num_guest }, (error, results) => {
+        const { user_id, res_status, payment_id,  details ,name} = req.body;
+        pool.query('INSERT INTO reservations SET ?', { user_id: user_id, status: res_status, payment_id: payment_id, details: details, name:name }, (error, results) => {
             if (error) {
                 console.log(error);
                 return res.status(404).json({ message: "first promise" });
@@ -335,35 +319,6 @@ exports.booking = (req, res) => {
             }
         });
 
-        // const reservationId = reservationResult.insertId;
-        // console.log(reservationId);
-
-        // const hotelResult = await new Promise((resolve, reject) => {
-        //     pool.query(sql, values, (error, results) => {
-        //         if (error) {
-        //             reject(error);
-        //         }
-        //         resolve(results);
-        //     });
-        // });
-
-        // const hotelId = hotelResult.insertId;
-
-        // const serviceSql = 'INSERT INTO Service (reservation_id, Hotel_ID) VALUES (?, ?)';
-        // const serviceValues = [reservationId, hotelId];
-        // const serviceResult = await new Promise((resolve, reject) => {
-        //     pool.query(serviceSql, serviceValues, (error, results) => {
-        //         if (error) {
-        //             reject(error);
-        //         }
-        //         resolve(results);
-        //     });
-        // });
-
-        // return res.json({
-        //     message: "Booking completed successfully",
-        //     results: [reservationResult, hotelResult, serviceResult]
-        // });
     } catch (error) {
         console.error(error);
         return res.status(500).json({
