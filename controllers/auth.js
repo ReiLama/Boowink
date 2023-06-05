@@ -289,3 +289,94 @@ exports.logout = (req, res) => {
          res.clearCookie('jwt');
          res.redirect('/login');
       };
+
+///////////////////////////////////////////////////////////////////////////////////////
+//Prova me auth
+// exports.register = (req, res) =>{
+//     //CHECK existing user
+
+//     const q = "SELECT * FROM users WHERE email = ? OR name = ?"
+//      pool.query(q, [req.body.email, req.body.name], (err, data)=>{
+//         if(err) return res.json(err)
+//         if(data.length) return res.status(409).json("User already exists");
+
+//         //Hash the password and create a user
+
+//         const salt = bcrypt.genSaltSync(10);
+//         const hash = bcrypt.hashSync(req.body.password, salt);
+
+//         const q = "INSERT INTO users (`name`, `email`, `password`) VALUES (?)"
+//         const values = [
+//             req.body.name,
+//             req.body.email,
+//             hash,
+//         ]
+
+//         pool.query(q, [values], (err, data)=>{
+//             if (err) return res.json(err);
+//             //for react
+//             // return res.status(200).json("User has been created");
+
+//             return res.render('register', {
+//                                     message: 'User registered'
+//                     });
+//         })
+
+//      })
+
+// }
+
+// exports.login = (req, res) =>{
+
+//     //CHECK USER
+    
+//     const q = "SELECT * FROM users WHERE email = ?"
+
+//     pool.query(q, [req.body.email], (err, data)=>{
+//         if(err) return res.json(err);
+//         // console.log(data[0].email);
+//         if(data.length === 0) 
+
+//         //react 
+//         // return res.status(404).json("User not found");
+//          {
+//             return res.status(401).render('login', {
+//                                 message: 'Email or password is incorrect'
+//                             });
+//             }
+
+//         const isPasswordCorrect = bcrypt.compareSync(req.body.password, data[0].password);
+
+//         if(!isPasswordCorrect)  {
+//             return res.status(401).render('login', {
+//                                 message: 'wrong Email or password '
+//                             });
+//             }
+
+//             // return res.status(400).json("Wrong username or password");
+//             const token = jwt.sign({id:data[0].id}, "jwtkey");
+//             const {password, ...other} = data[0];
+
+//             //react js 
+//             // res.cookie("access_token", token, {
+//             //     httpOnly: true
+//             // }).status(200).json(data[0])
+//              res.cookie("access_token", token, {
+//                 httpOnly: true
+//             }).status(200).render('index',{
+//                 message: "you are logged in"
+//             })
+           
+
+
+//     })
+// }
+
+// exports.logout = (req, res) =>{
+//     res.clearCookie("access_token", {
+//         sameSite: "none",
+//         secure: true
+//     }).status(200).render('index', {
+//         message: "user has been logged out"
+//     })
+// }

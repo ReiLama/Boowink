@@ -49,12 +49,15 @@ db.connect((error)=>{
 
 
 //DEFINE ROUTES
+// app.use('/api/v1', (req, res) => res.json("api/v1 working ..."))
+
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 app.use('/api/hotels', require('./routes/hotels'))
 app.use('/api/reservations', require('./routes/reservations'));
 app.use('/api/rooms', require('./routes/rooms'));
 app.use('/api/services', require('./routes/services'));
+app.use('/api/hotels/hotelImages', require('./routes/imgHotels'));
 // app.use('/api/reservations/:reservation_id/services', require('./routes/services'));
 // app.use('/api/reservations/:reservation_id/services', require('./routes/services'));
 
