@@ -9,13 +9,13 @@ const Footer = () => {
         <div class="footer-container">
             
                 <div className="footer-content">
-                    <h5>Content</h5>
-                    <p>ca llafe sfnjdfdhf djfhdfjhfhjfhjd fhjdhjdjhdfjhdfhjdfh</p>
+                    <h5>About us</h5>
+                    <p> Boowink Travel: You can Search Hotels,Cheap Flights, Car Rentals & Vacations, we are here to help you!</p>
                 </div>
                 <div class="footer-contact">
                     <h5>Contacts</h5>
-                    <p>Tel: 202-555-0117</p>
-                    <p>Mail: boowink@gmail.co</p>
+                    <p>Tel: +49 756 904893</p>
+                    <p>Mail: boowink@gmail.com</p>
                 </div>
                 <div class="footer-socialMedia">
                     <h5>Social Media</h5>
@@ -30,14 +30,6 @@ const Footer = () => {
                     <a href="https://google.com">
                         <FaTwitter/>
                     </a>
-                </div>
-                <div class="footer-Price">
-                    <h5>Price</h5>
-                    <a href="https://google.com">Pricing</a>
-                    <br></br>
-                    <a href="https://google.com">Premium</a>
-                    <br></br>
-                    <a href="https://google.com">promotions</a>
                 </div>
         </div>
         </footer>
