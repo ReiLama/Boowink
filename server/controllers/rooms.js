@@ -26,7 +26,7 @@ exports.updateRoom = async (req, res) => {
     const sql = 'UPDATE rooms SET ? WHERE id = ?';
     const values = [updatedRoom, req.params.id];
     try {
-      const result = await pool.query(sql, values);
+      const result =  pool.query(sql, values);
       if (result.affectedRows === 0) {
         return res.status(404).json({ message: 'Room not found' });
       }
@@ -52,7 +52,7 @@ exports.deleteRoom = async (req, res) => {
 // GET ONE ROOM (by ID)
 exports.getRoom = async (req, res, next) => {
     const roomId = req.params.id;
-    const result = await pool.query('SELECT * FROM rooms WHERE id = ?', [roomId], (error, results)=>{
+    const result = pool.query('SELECT * FROM rooms WHERE id = ?', [roomId], (error, results)=>{
       if(error){
           console.error('Something went wrong please try again later', error);
           res.status(500).json({message:'error getting room'});
@@ -65,7 +65,7 @@ exports.getRoom = async (req, res, next) => {
 };
 // GET ALL ROOMS
 exports.getRooms = async (req, res) => {
-    const result = await pool.query('SELECT * FROM rooms', (error, results) => {
+    const result =  pool.query('SELECT * FROM rooms', (error, results) => {
         if(error){
             console.error('Something went wrong please try again later', error);
             res.status(500).json({message:'ERROR IN GETTING THE Rooms'});

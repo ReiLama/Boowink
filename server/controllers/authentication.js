@@ -7,6 +7,7 @@ const smtpTransport = require('nodemailer-smtp-transport');
 
 
 
+
 const pool = mysql.createPool({
     connectionLimit: 10,
     host: process.env.DATABASE_HOST,
@@ -54,52 +55,44 @@ exports.authenticateUser = (req, res, next) => {
     });
 };
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
     try {
-
-        const { firstname, email, password, passwordConfirm,  userType } = req.body;
-
-        pool.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
-            if (error) {
-                console.log(error);
-            }
-            //there is already an email with that value in our database
-            if (results.length > 0) {
-                return res.json({
-                    message: 'That email has been taken'
-                })
-            } else if (password !== passwordConfirm) {
-                return res.json({
-                    message: 'Passwords do not match'
-                });
-            }
-
-            let hashedPassword = await bcrypt.hash(password, 8);
-            console.log(hashedPassword);
-
-            pool.query('INSERT INTO users SET ?', {  email: email, password: hashedPassword, name: firstname,type: userType}, (error, results) => {
-                if (error) {
-                    console.log(error);
-                    return res.json({
-                        message: 'Something went wrong check your credentials 1'
-                    });
-                } else {
-                    console.log(results);
-                    return res.json({
-                        message: 'User registered go to login page to login',
-                    });
-                }
-            });
-        });
-    } catch (error) {
+      const { firstname, email, password, passwordConfirm, userType } = req.body;
+  
+      const existingUser = await pool.query('SELECT email FROM users WHERE email = ?', [email]);
+  
+      if (existingUser.length > 0) {
         return res.json({
-            message: 'Something went wrong check your credentials 2'
+          message: 'That email has been taken'
         });
-
+      } else if (password !== passwordConfirm) {
+        return res.json({
+          message: 'Passwords do not match'
+        });
+      }
+  
+      const hashedPassword = await bcrypt.hash(password, 8);
+  
+      await pool.query('INSERT INTO users SET ?', {
+        email: email,
+        password: hashedPassword,
+        name: firstname,
+        type: userType
+      });
+  
+      return res.json({
+        message: 'User registered. Go to the login page to login.',
+      });
+    } catch (error) {
+      console.log(error);
+      return res.json({
+        message: 'Something went wrong. Please check your credentials.'
+      });
     }
-};
+  };
+  
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -110,7 +103,7 @@ exports.login = (req, res) => {
         }
 
         pool.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
-
+            
             if (!results || results.length === 0) {
                 res.status(401).json({
                     message: 'Email or password is incorrect'
@@ -307,8 +300,8 @@ exports.logout = (req, res) => {
 
 exports.booking = (req, res) => {
     try {
-        const { user_id, res_status, payment_id,  details ,name} = req.body;
-        pool.query('INSERT INTO reservations SET ?', { user_id: user_id, status: res_status, payment_id: payment_id, details: details, name:name }, (error, results) => {
+        const { user_id, res_status, payment_id, details, name } = req.body;
+        pool.query('INSERT INTO reservations SET ?', { user_id: user_id, status: res_status, payment_id: payment_id, details: details, name: name }, (error, results) => {
             if (error) {
                 console.log(error);
                 return res.status(404).json({ message: "first promise" });
@@ -326,3 +319,22 @@ exports.booking = (req, res) => {
         });
     }
 };
+
+exports.myBooking = (req, res) => {
+    try {
+        const userId = parseInt(req.params.id);
+        const query = 'SELECT * FROM reservations WHERE user_id = ?';
+        pool.query(query, [userId], (error, results) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).json({ message: 'An error occurred while retrieving the bookings.' });
+            }
+            return res.json(results);
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(404).json({ message: 'You have no data.' });
+    }
+};
+
+  // payment api to be built look stripe.com
